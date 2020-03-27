@@ -22,25 +22,36 @@ s.connect(("8.8.8.8", 80))
 local_ip=s.getsockname()[0]
 s.close()
 #**********************
-
 fname=hashlib.md5(say.encode()).hexdigest()+".mp3"; #create md5 filename for caching
 
 castdevice = pychromecast.Chromecast(ip)
 castdevice.wait()
 vol_prec=castdevice.status.volume_level
-castdevice.set_volume(0.0) #set volume 0 for not hear the BEEEP
+# castdevice.set_volume(0.0) #set volume 0 for not hear the BEEEP
 
+fileDirectory = os.getcwd() + '/mp3_cache/'
+filePath = fileDirectory + fname
+print('fileDirectory')
+print(fileDirectory)
+print('filePath')
+print(filePath)
 try:
-   os.mkdir("/home/pi/googleHomeServer/mp3_cache/")
+   os.mkdir(fileDirectory)
+#    os.mkdir("/home/pi/mp3_cache/")
 except:
    pass
 
-if not os.path.isfile("/home/pi/googleHomeServer/mp3_cache/"+fname):
-   tts = gTTS(say,lang='it')
-   tts.save("/home/pi/googleHomeServer/mp3_cache/"+fname)
+# if not os.path.isfile(filePath):
+if not os.path.isfile("/home/pi/googleHome/mp3_cache/"+fname):
+   tts = gTTS(say)
+   tts.save(filePath)
+#    tts.save("/home/pi/mp3_cache/"+fname)
 
 mc = castdevice.media_controller
-mc.play_media("http://"+local_ip+"/mp3_cache/"+fname, "audio/mp3")
+print('localhost: **')
+print("http://"+local_ip+":3001/mp3_cache")
+mc.play_media("http://"+local_ip+":3001/mp3_cache", "audio/mp3")
+# mc.play_media("http://"+local_ip+"/mp3_cache/"+fname, "audio/mp3")
 
 mc.block_until_active()
 
