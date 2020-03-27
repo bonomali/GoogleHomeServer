@@ -1,10 +1,21 @@
 const http = require('http');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 //create a server object:
 http.createServer(function (req, res) {
     let url = req.url;
     console.log('receive response');
     if(url ==='/googlehome'){
-        res.write('<h1>googlehome<h1>');
+        async function initGoogleHome() {
+            try {
+                const { stdout, stderr } = await exec('python3 googleHome.py');
+                console.log('stdout:', stdout);
+                console.log('stderr:', stderr);
+            }catch (err)=>{
+                console.error(err);
+            };
+        };
+        initGoogleHome();
         console.log('active google home');
         res.end();
     }

@@ -11,3 +11,6 @@ cd Python-3.7.2
 ./configure
 make -j 4
 sudo make altinstall
+npm install
+pip3 install pychromecast
+pip3 install gtts
