@@ -3,7 +3,7 @@ Description=Google Home Service
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/node -u index.js
+ExecStart=/usr/bin/node index.js
 WorkingDirectory=/home/pi/googleHomeServer
 StandardOutput=inherit
 StandardError=inherit
