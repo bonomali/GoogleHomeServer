@@ -26,7 +26,7 @@ pip3 install gtts
 pip3 install spotify-token
 pip3 install git+https://github.com/plamere/spotipy.git
 # Set Google Home Service
-sudo cp googlehome.service /etc/systemd/system/googlehome.service
+sudo cp services/googlehome.service /etc/systemd/system/googlehome.service
 sudo systemctl start googlehome.service
 sudo systemctl enable googlehome.service
 # install Home Assist
@@ -41,4 +41,10 @@ python3 -m venv .
 source bin/activate
 python3 -m pip install wheel
 pip3 install homeassistant
-hass
+exit
+cd /home/pi/googleHomeServer
+# Set Home Assist Service
+chmod 755 homeAssistantStart.sh
+sudo cp services/homeassistant.service /etc/systemd/system/homeassistant.service
+sudo systemctl start homeassistant.service
+sudo systemctl enable homeassistant.service
