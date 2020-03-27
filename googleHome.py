@@ -2,8 +2,6 @@
 #
 # use: ./ghome_say [ghome_ip] [text_to_say]
 #
-#
-
 import sys
 import pychromecast
 import os

@@ -16,3 +16,7 @@ sudo apt-get install python3-pip
 npm install
 pip3 install pychromecast
 pip3 install gtts
+# Google Home Service
+sudo cp googlehome.service /etc/systemd/system/googlehome.service
+sudo systemctl start googlehome.service
+sudo systemctl enable googlehome.service
