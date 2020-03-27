@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jerrylee09/GoogleHomeServer/issues"
   },
-  "homepage": "https://github.com/jerrylee09/GoogleHomeServer#readme"
+  "homepage": "https://github.com/jerrylee09/GoogleHomeServer#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
