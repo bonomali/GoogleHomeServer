@@ -31,10 +31,7 @@ castdevice.set_volume(0.0) #set volume 0 for not hear the BEEEP
 
 fileDirectory = os.getcwd() + '/mp3_cache/'
 filePath = fileDirectory + fname
-print('fileDirectory')
-print(fileDirectory)
-print('filePath')
-print(filePath)
+
 try:
    os.mkdir(fileDirectory)
 except:
