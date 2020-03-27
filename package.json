@@ -1,0 +1,19 @@
+{
+  "name": "googlehomeserver",
+  "version": "1.0.0",
+  "description": "Talk to Google home",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerrylee09/GoogleHomeServer.git"
+  },
+  "author": "Jerry Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jerrylee09/GoogleHomeServer/issues"
+  },
+  "homepage": "https://github.com/jerrylee09/GoogleHomeServer#readme"
+}
