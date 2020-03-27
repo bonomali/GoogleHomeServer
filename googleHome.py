@@ -1,7 +1,5 @@
-# spoke something on GoogleHome
-#
-# use: ./ghome_say [ghome_ip] [text_to_say]
-#
+# GoogleHome Voice Response
+
 import sys
 import pychromecast
 import os
@@ -35,7 +33,8 @@ try:
 except:
    pass
 
-if not os.path.isfile("/home/pi/googleHome/mp3_cache/"+fname):
+if not os.path.isfile(filePath):
+# if not os.path.isfile("/home/pi/googleHome/mp3_cache/"+fname):
    tts = gTTS(say)
    tts.save(filePath)
 
