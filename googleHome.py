@@ -39,7 +39,6 @@ if not os.path.isfile(filePath):
    tts.save(filePath)
 
 mc = castdevice.media_controller
-# mc.play_media("http://localhost:3001/mp3_cache", "audio/mp3")
 mc.play_media("http://"+local_ip+":3001/mp3_cache", "audio/mp3")
 
 mc.block_until_active()
