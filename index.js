@@ -2,9 +2,7 @@ const http = require('http');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const fs = require('fs');
-// const path = require('path');
 
-//create a server object:
 http.createServer(function (req, res) {
     let url = req.url;
     console.log('receive response');
@@ -36,5 +34,5 @@ http.createServer(function (req, res) {
         console.log('active mp3_cache');
     }
 }).listen(3001, function(){
-    console.log("server start at port 3001"); //the server object listens on port 3000
+    console.log("server start at port 3001");
 });
