@@ -27,7 +27,7 @@ fname=hashlib.md5(say.encode()).hexdigest()+".mp3"; #create md5 filename for cac
 castdevice = pychromecast.Chromecast(ip)
 castdevice.wait()
 vol_prec=castdevice.status.volume_level
-# castdevice.set_volume(0.0) #set volume 0 for not hear the BEEEP
+castdevice.set_volume(0.0) #set volume 0 for not hear the BEEEP
 
 fileDirectory = os.getcwd() + '/mp3_cache/'
 filePath = fileDirectory + fname
