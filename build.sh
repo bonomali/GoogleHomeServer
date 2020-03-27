@@ -5,7 +5,6 @@ sudo apt full-upgrade
 sudo apt-get dist-upgrade
 # Install Git
 sudo apt install git
-echo "y"
 # Install latest Node
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
