@@ -42,8 +42,6 @@ if not os.path.isfile("/home/pi/googleHome/mp3_cache/"+fname):
    tts.save(filePath)
 
 mc = castdevice.media_controller
-print('localhost: **')
-print("http://"+local_ip+":3001/mp3_cache")
 mc.play_media("http://"+local_ip+":3001/mp3_cache", "audio/mp3")
 
 mc.block_until_active()
