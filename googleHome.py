@@ -31,13 +31,13 @@ vol_prec=castdevice.status.volume_level
 castdevice.set_volume(0.0) #set volume 0 for not hear the BEEEP
 
 try:
-   os.mkdir("/var/www/html/mp3_cache/")
+   os.mkdir("/home/pi/googleHomeServer/mp3_cache/")
 except:
    pass
 
-if not os.path.isfile("/var/www/html/mp3_cache/"+fname):
+if not os.path.isfile("/home/pi/googleHomeServer/mp3_cache/"+fname):
    tts = gTTS(say,lang='it')
-   tts.save("/var/www/html/mp3_cache/"+fname)
+   tts.save("/home/pi/googleHomeServer/mp3_cache/"+fname)
 
 mc = castdevice.media_controller
 mc.play_media("http://"+local_ip+"/mp3_cache/"+fname, "audio/mp3")

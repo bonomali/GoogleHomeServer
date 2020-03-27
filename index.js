@@ -5,13 +5,15 @@ const exec = util.promisify(require('child_process').exec);
 http.createServer(function (req, res) {
     let url = req.url;
     console.log('receive response');
+    res.write('<h1>google home<h1>');
     if(url ==='/googlehome'){
         async function initGoogleHome() {
             try {
                 const { stdout, stderr } = await exec('python3 googleHome.py');
+                // const { stdout, stderr } = await exec('python3 testVolume.py');
                 console.log('stdout:', stdout);
                 console.log('stderr:', stderr);
-            }catch (err)=>{
+            }catch (err){
                 console.error(err);
             };
         };
