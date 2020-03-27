@@ -1,7 +1,9 @@
 const http = require('http');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+// const util = require('util');
+// const exec = util.promisify(require('child_process').exec);
 const fs = require('fs');
+const {spawn} = require('child_process');
+
 
 http.createServer(function (req, res) {
     let url = req.url;
@@ -10,10 +12,12 @@ http.createServer(function (req, res) {
         res.write('<h1>google home<h1>');
         async function initGoogleHome() {
             try {
-                const { stdout, stderr } = await exec('python3 googleHome.py');
+                // const { stdout, stderr } = await exec('python3 googleHome.py');
                 // const { stdout, stderr } = await exec('python3 testVolume.py');
-                console.log('stdout:', stdout);
-                console.log('stderr:', stderr);
+                // console.log('stdout:', stdout);
+                // console.log('stderr:', stderr);
+                let python = spawn('python3', ['googleHome.py']);
+
             } catch (err){
                 console.error(err);
             }
