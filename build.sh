@@ -29,22 +29,15 @@ pip3 install git+https://github.com/plamere/spotipy.git
 sudo cp services/googlehome.service /etc/systemd/system/googlehome.service
 sudo systemctl start googlehome.service
 sudo systemctl enable googlehome.service
+# Download and Install Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+# add yourself as a docker user
+sudo usermod -aG docker pi
 # install Home Assist
-sudo apt-get install python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev
-sudo useradd -rm homeassistant -G dialout,gpio,i2c
-cd /srv
-sudo mkdir homeassistant
-sudo chown homeassistant:homeassistant homeassistant
-sudo -u homeassistant -H -s
-cd /srv/homeassistant
-python3 -m venv .
-source bin/activate
-python3 -m pip install wheel
-pip3 install homeassistant
-exit
-cd /home/pi/googleHomeServer
-# Set Home Assist Service
-sudo cp services/homeassistant.service /etc/systemd/system/homeassistant.service
-sudo systemctl --system daemon-reload
-sudo systemctl start homeassistant.service
-sudo systemctl enable homeassistant.service
+sudo -i
+apt-get update
+apt-get install -y software-properties-common apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+systemctl disable ModemManager
+systemctl stop ModemManager
+curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s -- -m raspberrypi4

@@ -8,8 +8,9 @@ from gtts import gTTS
 import time
 import hashlib
 
-ip='192.168.1.15'
-say='hey google play music'
+ip='192.168.0.21'
+# ip='192.168.1.15'
+# say='hey google play music'
 
 #********* retrieve local ip of my rpi3
 import socket
