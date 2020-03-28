@@ -1,14 +1,11 @@
 [Unit]
-Description=Home Assistant Service
-After=network.target
+Description=Home Assistant
+After=network-online.target
 
 [Service]
-ExecStart=/usr/bin/homeAssistantStart.sh
-WorkingDirectory=/home/pi/googleHomeServer
-StandardOutput=inherit
-StandardError=inherit
-Restart=always
+Type=simple
 User=pi
+ExecStart=/srv/homeassistant/bin/hass
 
 [Install]
 WantedBy=multi-user.target

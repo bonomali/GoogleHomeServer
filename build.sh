@@ -44,7 +44,7 @@ pip3 install homeassistant
 exit
 cd /home/pi/googleHomeServer
 # Set Home Assist Service
-chmod 755 homeAssistantStart.sh
 sudo cp services/homeassistant.service /etc/systemd/system/homeassistant.service
+sudo systemctl --system daemon-reload
 sudo systemctl start homeassistant.service
 sudo systemctl enable homeassistant.service
