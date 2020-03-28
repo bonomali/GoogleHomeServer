@@ -8,3 +8,6 @@ sudo nmap -sP yourIpAddress/24
 chmod 755 build.sh
 # Run command to run build script
 ./build.sh
+
+# Open Home Assistant on Browser
+http://yourDeviceIpAddress:8123
