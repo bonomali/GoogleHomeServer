@@ -8,9 +8,9 @@ from gtts import gTTS
 import time
 import hashlib
 
-ip='192.168.0.21'
+ip='192.168.1.16'
 # ip='192.168.1.15'
-# say='hey google play music'
+say='hey google play music'
 
 #********* retrieve local ip of my rpi3
 import socket
@@ -24,7 +24,7 @@ fname=hashlib.md5(say.encode()).hexdigest()+".mp3"; #create md5 filename for cac
 castdevice = pychromecast.Chromecast(ip)
 castdevice.wait()
 vol_prec=castdevice.status.volume_level
-# castdevice.set_volume(0.0) #set volume 0 for not hear the BEEEP
+castdevice.set_volume(0.0) #set volume 0 for not hear the BEEEP
 
 fileDirectory = os.getcwd() + '/mp3_cache/'
 filePath = fileDirectory + fname
@@ -35,7 +35,6 @@ except:
    pass
 
 if not os.path.isfile(filePath):
-# if not os.path.isfile("/home/pi/googleHome/mp3_cache/"+fname):
    tts = gTTS(say)
    tts.save(filePath)
 
